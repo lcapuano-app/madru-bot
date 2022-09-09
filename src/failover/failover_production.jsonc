@@ -13,7 +13,7 @@
     "quote": {
         "canvas": {
             "color": "black",    // Canvas base color. It can be the color name or rbb(a) notation. Eg: "rgb(0,0,0)"
-            "mode": "RGBA",       // Canvas RGB or RGBA
+            "mode": "RGB",       // Canvas RGB or RGBA
             "height": 800,       // Canvas height in pixels
             "width": 600         // Canvas width in pixels
         },
@@ -21,7 +21,7 @@
         "decor": {
 
         },
-        "out_dir": "../quote-imgs",
+
         "walker": {
 
         }
