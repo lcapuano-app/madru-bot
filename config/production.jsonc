@@ -1,0 +1,34 @@
+{
+    // Inner API
+    "api": {
+
+    },
+
+    // Discord Bot
+    "discord": {
+
+    },
+
+    // Quote image generator
+    "quote": {
+        "canvas": {
+            "color": "black",    // Canvas base color. It can be the color name or rbb(a) notation. Eg: "rgb(0,0,0)"
+            "mode": "RGB",       // Canvas RGB or RGBA
+            "height": 800,       // Canvas height in pixels
+            "width": 600         // Canvas width in pixels
+        },
+
+        "decor": {
+
+        },
+
+        "walker": {
+
+        }
+    },
+
+    // Log
+    "log" : {
+        "output_dir": "logs"
+    }
+}
