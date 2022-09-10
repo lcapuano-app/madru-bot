@@ -21,6 +21,8 @@
         "decor": {
 
         },
+        
+        "out_dir": "../quote-imgs",
 
         "walker": {
 
@@ -29,6 +31,19 @@
 
     // Log
     "log" : {
-        "output_dir": "logs"
+        /**
+            Uncomment the desired level.
+            It logs erverything with a grater value then the select one.
+            Eg: level = WARNING will not log INFO and DEBUG errors
+            but will log from WARNING to CRITICAL.
+        */
+        "level": 10,                     // DEBUG- Lowest. Everything is logged
+//      "level": 20,                     // INFO
+//      "level": 30,                     // WARNING
+//      "level": 40,                     // ERROR
+//      "level": 50,                     // CRITICAL - Highest. Crashes only
+
+        "out_dir": "../logs",            // Log output dir. ../ relative to main.py (root)
+        "filename": "madru-bot-log"      // Log file name. No extension needed
     }
 }

@@ -41,8 +41,8 @@ class AppLog:
 
         self.__is_set = True
 
+
     def __create_output_dir( output_dir: str ) -> str:
-        print('TESTE STATICO OUTDIR')
         output_path: str = get_dir_dot_dot_path( target_dir=output_dir, root_dir=ROOT_DIR )
         create_dir( target_dir=output_path )
         return output_path

@@ -6,7 +6,7 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 
 from definitions import ROOT_DIR
-from app_config import AppConfig
+from app_config import AppConfig, AppConfigModel
 from app_logger import AppLog
 from quote_img_gen.img_gen import QuoteImageGen
 
@@ -23,13 +23,13 @@ def __get_app_config() -> AppConfig:
     app_config = AppConfig()
     print(app_config.config)
 
-def __set_app_logger( app_config: AppConfig ):
-    app_config.cfg_log
+def __set_app_logger( app_config: AppConfigModel ):
+    log = app_config.log
   
     AppLog.set_logging(
-        level = app_config.cfg_log['level'],
-        filename = app_config.cfg_log['filename'],
-        output_dir = app_config.cfg_log['out_dir']
+        level = log['level'],
+        filename = log['filename'],
+        output_dir = log['out_dir']
     )
 
 def fake_req():
@@ -47,7 +47,7 @@ def fake_req():
 def main() -> None:
     __init_dot_env()
     init_colorama()
-    app_config = AppConfig()
+    app_config = AppConfig().get
     __set_app_logger( app_config )
     fake_req()
     #print(qq)

@@ -21,6 +21,8 @@
         "decor": {
 
         },
+        
+        "out_dir": "../quote-imgs",
 
         "walker": {
 
