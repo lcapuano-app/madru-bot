@@ -3,63 +3,20 @@ from pprint import pprint
 import shutil
 import sys
 
-from typing import TypedDict
-from enum import Enum
 from jsonc_parser.parser import JsoncParser
 from colorama import Fore, Style
 
 from definitions import CONFIG_DEV, CONFIG_PROD, CONFIG_FAILOVER_DEV, CONFIG_FAILOVER_PROD
-from utils.dict_validator import DictValidator as Validator
-
-
-class ConfigApiType ( TypedDict ):
-    pass
-
-class ConfigDiscordType ( TypedDict ):
-    pass
-
-class ConfigLogLevel ( Enum ):
-    CRITICAL = 50
-    FATAL    = 50
-    ERROR    = 40
-    WARNING  = 30
-    WARN     = 30
-    INFO     = 20
-    DEBUG    = 10
-    NOTSET   = 0
-
-    @classmethod
-    def has_value(cls, value):
-        return value in cls._value2member_map_
-
-    @classmethod
-    def get_value(self, enum_property_name):
-        return getattr(self, enum_property_name)
-
-class ConfigLogType ( TypedDict ):
-    filename : str
-    level    : ConfigLogLevel
-    out_dir  : str
-
-
-class ConfigQuoteCanvasType ( TypedDict ):
-    color: str
-    mode: str
-    height: int
-    width: int
-
-
-class ConfigQuoteType ( TypedDict ):
-    canvas: ConfigQuoteCanvasType
-    decor: dict
-    out_dir: str
-    walker: dict
-
-class ConfigType ( TypedDict ):
-    api     : ConfigApiType
-    discord : ConfigDiscordType
-    log     : ConfigLogType
-    quote   : ConfigQuoteType
+from utils import DictValidator as Validator
+from app_types import (
+    ConfigApiType,
+    ConfigDiscordType,
+    ConfigLogLevel,
+    ConfigLogType,
+    ConfigQuoteType,
+    ConfigQuoteCanvasType,
+    ConfigType
+)
 
 
 class AppConfig ():

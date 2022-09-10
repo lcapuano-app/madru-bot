@@ -6,11 +6,6 @@ from PIL.Image import Image as ImageType
 from definitions import IMG_EXT
 from app_config import AppConfig
 
-_AppConfig = AppConfig
-_IMG_EXT = IMG_EXT
-
-del IMG_EXT, AppConfig
-
 
 class QuoteImageGenImgType ( TypedDict ):
     b64  : str
@@ -39,7 +34,7 @@ class QuoteImageGen:
     def gen( self ) -> QuoteImageGenType:
         #app_cfg = _AppConfig().
         qt_req = self.__quote_req
-        img_name = qt_req['quote_id'] + _IMG_EXT
+        img_name = qt_req['quote_id'] + IMG_EXT
         #file_path = os.path.join( qt_req[], img_name )
         print( 'FUNFA?', img_name)
         pass

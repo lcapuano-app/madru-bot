@@ -1,0 +1,2 @@
+class AppConfigRestore:
+    pass
