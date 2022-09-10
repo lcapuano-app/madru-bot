@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from definitions import ROOT_DIR
 from app_config import AppConfig
-from app_logger import AppLogger
+from app_logger import AppLog
 from quote_img_gen.img_gen import QuoteImageGen
 
 
@@ -25,10 +25,11 @@ def __get_app_config() -> AppConfig:
 
 def __set_app_logger( app_config: AppConfig ):
     app_config.cfg_log
-    AppLogger.load_config(
-        log_level = app_config.cfg_log['level'],
+  
+    AppLog.set_logging(
+        level = app_config.cfg_log['level'],
         filename = app_config.cfg_log['filename'],
-        out_dir = app_config.cfg_log['out_dir']
+        output_dir = app_config.cfg_log['out_dir']
     )
 
 def fake_req():
