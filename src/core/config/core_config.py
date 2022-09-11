@@ -2,7 +2,7 @@ from core.config.core_config_model import CoreConfigModel
 from core.config.core_config_controller import CoreConfigController
 
 
-class CoreConfig ():
+class CoreConfig ( CoreConfigModel ):
 
     __config: CoreConfigModel = None
 

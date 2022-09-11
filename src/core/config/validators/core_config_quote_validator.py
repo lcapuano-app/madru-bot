@@ -19,7 +19,7 @@ class CoreConfigQuoteValidator():
         try:
             Validator.is_instance_of_err( self.__quote, self.__validator_pattern(), raise_err=True )
             self.__quote['canvas'] = CoreConfigQuoteCanvasValidator( self.__quote['canvas'] ).validate()
-            self.__quote['canvas'] = CoreConfigQuoteImgsValidator( self.__quote['imgs'] ).validate()
+            self.__quote['imgs'] = CoreConfigQuoteImgsValidator( self.__quote['imgs'] ).validate()
             return self.__quote
             
         except ValueError as err:
