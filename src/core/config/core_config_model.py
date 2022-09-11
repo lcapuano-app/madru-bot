@@ -1,4 +1,4 @@
-from app_types.config import (
+from core.types.config import (
     ConfigApiType,
     ConfigDiscordType,
     ConfigLogType,
@@ -6,7 +6,7 @@ from app_types.config import (
     ConfigType
 )
 
-class AppConfigModel ():
+class CoreConfigModel ():
 
     __cfg: ConfigType
     __api: ConfigApiType

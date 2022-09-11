@@ -1,11 +1,11 @@
 from typing import Any
 
-from app_types.config import ConfigLogType, ConfigLogLevel
+from core.types.config import ConfigLogType, ConfigLogLevel
 from utils import DictValidator as Validator
-from app_config.validators.app_config_validator_error import AppConfigValidatorError
+from core.config.validators.core_config_validator_error import CoreConfigValidatorError
 
 
-class AppConfigLogValidator():
+class CoreConfigLogValidator():
 
 
     def __init__(self, log: ConfigLogType ) -> None:
@@ -30,7 +30,7 @@ class AppConfigLogValidator():
             return self.__log
 
         except ValueError as err:
-            AppConfigValidatorError.throw_error( err, where=__file__ )
+            CoreConfigValidatorError.throw_error( err, where=__file__ )
 
 
     def __validator_pattern( self ) -> list[dict[str, Any]]:

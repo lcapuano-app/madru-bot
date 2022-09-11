@@ -4,7 +4,7 @@ from pprint import pprint
 from colorama import Fore, Style
 
 
-class AppConfigValidatorError:
+class CoreConfigValidatorError:
 
     @staticmethod
     def throw_error( err: ValueError, where: str = '' ) -> None:

@@ -2,17 +2,17 @@ import logging
 import os.path
 
 from definitions import ROOT_DIR
-from app_logger.assert_log_level import AssertLogLevel
+from core.logger.core_assert_log_level import CoreAssertLogLevel
 from utils.files import create_dir, get_dir_dot_dot_path, get_timestamp_filename
 
 
-class AppLog:
+class CoreAppLog:
 
     __is_set: bool = False
 
     @staticmethod
     def set_logging( level: int = 0, filename: str = 'log', output_dir: str = '' ) -> None:
-        self = AppLog
+        self = CoreAppLog
 
         if self.__is_set:
             return
@@ -23,10 +23,10 @@ class AppLog:
 
 
     def __setup( level: int = 0, filename: str = 'log', output_dir: str = '' ) -> None:
-        self = AppLog
+        self = CoreAppLog
         
 
-        level = AssertLogLevel( level ).get_asserted()
+        level = CoreAssertLogLevel( level ).get_asserted()
         output_dir = self.__create_output_dir( output_dir=output_dir )
         filename = get_timestamp_filename( filename=filename, ext='log' )
         filename = os.path.join( output_dir, filename )

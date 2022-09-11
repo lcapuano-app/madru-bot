@@ -1,11 +1,11 @@
 from typing import Any
 
-from app_types.config import ConfigDiscordType
+from core.types.config import ConfigDiscordType
 from utils import DictValidator as Validator
-from app_config.validators.app_config_validator_error import AppConfigValidatorError
+from core.config.validators.core_config_validator_error import CoreConfigValidatorError
 
 
-class AppConfigDiscordValidator():
+class CoreConfigDiscordValidator():
 
 
     def __init__(self, discord: ConfigDiscordType ) -> None:
@@ -19,7 +19,7 @@ class AppConfigDiscordValidator():
             return self.__discord
 
         except ValueError as err:
-            AppConfigValidatorError.throw_error( err, where=__file__ )
+            CoreConfigValidatorError.throw_error( err, where=__file__ )
 
 
     def __validator_pattern( self ) -> list[dict[str, Any]]:

@@ -6,9 +6,9 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 
 from definitions import ROOT_DIR
-from app_config import AppConfig, AppConfigModel
-from app_logger import AppLog
-from quote_img_gen.img_gen import QuoteImageGen
+from core.config import CoreConfig, CoreConfigModel
+from core.logger import CoreAppLog
+from domains.quote_img.img_gen import QuoteImageGen
 
 
 """ Tries to access all props that we need No error handlres here!
@@ -19,14 +19,10 @@ def __init_dot_env() -> None:
     load_dotenv( dotenv_path )
     os.environ['ENV']
 
-def __get_app_config() -> AppConfig:
-    app_config = AppConfig()
-    print(app_config.config)
-
-def __set_app_logger( app_config: AppConfigModel ):
+def __set_app_logger( app_config: CoreConfigModel ):
     log = app_config.log
   
-    AppLog.set_logging(
+    CoreAppLog.set_logging(
         level = log['level'],
         filename = log['filename'],
         output_dir = log['out_dir']
@@ -47,7 +43,7 @@ def fake_req():
 def main() -> None:
     __init_dot_env()
     init_colorama()
-    app_config = AppConfig().get
+    app_config = CoreConfig().get
     __set_app_logger( app_config )
     fake_req()
     #print(qq)

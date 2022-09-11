@@ -1,28 +1,27 @@
 import os
-from pprint import pprint
 import shutil
 
 from jsonc_parser.parser import JsoncParser
 
 from definitions import CONFIG_DEV, CONFIG_PROD, CONFIG_FAILOVER_DEV, CONFIG_FAILOVER_PROD
-from app_types.config import ConfigType
-from app_config.validators import AppConfigValidator
-from app_config.app_config_model import AppConfigModel
+from core.types.config import ConfigType
+from core.config.validators import CoreConfigValidator
+from core.config.core_config_model import CoreConfigModel
 
 
-class AppConfigController ():
+class CoreConfigController ():
 
     def __init__(self) -> None:
         pass
     
-    def set_cfg( self ) -> AppConfigModel:
+    def set_cfg( self ) -> CoreConfigModel:
 
         file_path = self.__get_file_path()
         json_data: dict = self.__load_json_c( file_path )
 
-        config: ConfigType = AppConfigValidator( json_data ).validate()
+        config: ConfigType = CoreConfigValidator( json_data ).validate()
 
-        return AppConfigModel( config )
+        return CoreConfigModel( config )
 
 
     def __load_json_c( self, file_path: str ) -> dict:

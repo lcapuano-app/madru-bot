@@ -1,11 +1,11 @@
 from typing import Any
 
-from app_types.config import ConfigQuoteCanvasType
+from core.types.config import ConfigQuoteCanvasType
 from utils import DictValidator as Validator
-from app_config.validators.app_config_validator_error import AppConfigValidatorError
+from core.config.validators.core_config_validator_error import CoreConfigValidatorError
 
 
-class AppConfigQuoteCanvasValidator():
+class CoreConfigQuoteCanvasValidator():
 
 
     def __init__(self, canvas: ConfigQuoteCanvasType ) -> None:
@@ -24,7 +24,7 @@ class AppConfigQuoteCanvasValidator():
             return self.__canvas
 
         except ValueError as err:
-            AppConfigValidatorError.throw_error( err, where=__file__ )
+            CoreConfigValidatorError.throw_error( err, where=__file__ )
 
 
     def __validator_pattern( self ) -> list[dict[str, Any]]:

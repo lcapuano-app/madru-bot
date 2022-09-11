@@ -1,7 +1,7 @@
 import logging
 
 
-class LoggingConfig:
+class CoreLoggingConfig:
 
 
     @staticmethod

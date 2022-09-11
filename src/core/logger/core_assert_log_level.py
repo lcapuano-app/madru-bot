@@ -1,9 +1,8 @@
-import logging
 from typing import Any
 
 from utils.math import try_parse_int
 
-class AssertLogLevel:
+class CoreAssertLogLevel:
 
     def __init__(self, level: int ) -> None:
         self.__level = level

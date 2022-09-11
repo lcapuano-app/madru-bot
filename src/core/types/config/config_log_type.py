@@ -1,6 +1,6 @@
 from typing import TypedDict
 
-from app_types.config.config_log_level_type import ConfigLogLevel
+from core.types.config.config_log_level_type import ConfigLogLevel
 
 
 class ConfigLogType ( TypedDict ):
