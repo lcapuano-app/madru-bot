@@ -4,8 +4,7 @@ from core.types.quote.quote_gen_canvas_type import QuoteGenCanvasType
 
 
 class ConfigQuoteCanvasType ( QuoteGenCanvasType ):
-   pass
-
+    pass
 
 class ConfigQuoteImgsType ( TypedDict ):
     overlay_dir : str

@@ -24,7 +24,7 @@ class CoreConfigModel ():
         self.__quote = config['quote']
 
     @property
-    def cfg( self ) -> ConfigType:
+    def all( self ) -> ConfigType:
         return self.__cfg
 
 

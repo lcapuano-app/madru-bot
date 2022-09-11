@@ -7,7 +7,7 @@ from definitions import IMG_EXT
 from core.config import CoreConfig
 from core.types.quote import QuoteGenType, QuoteGenReq
 from core.types.config import ConfigQuoteType
-from domains.quote_img.layers import BackgroundLayer
+from domains.quote_img.layers.background_layer import BackgroundLayer
 
 
 class QuoteImageGen():
@@ -18,17 +18,17 @@ class QuoteImageGen():
     
 
     def gen( self ) -> QuoteGenType:
-        core_config = CoreConfig().get
+        quote_config = CoreConfig().get.quote
         
-        imgs_cfg = core_config.quote['imgs']
+        imgs_cfg = quote_config['imgs']
 
         qt_req = self.__quote_req
         img_name = qt_req['quote_id'] + IMG_EXT
 
         #file_path = os.path.join( qt_req[], img_name )
-        print( 'FUNFA?', core_config.cfg)
+        #print( 'FUNFA?', core_config.cfg)
         #im2=Canvas.create()
-        im = BackgroundLayer.create( core_config.quote['canvas'] )
-        #im2.show()
+        im = BackgroundLayer.create( quote_config['canvas'] )
+        im.show()
 
 
