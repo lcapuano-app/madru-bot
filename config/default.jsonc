@@ -22,7 +22,10 @@
 
         },
 
-        "out_dir": "../quote-imgs",
+        "imgs": {
+            "overlay_dir" : "../assets/quote-overlays",      // Image overlay folder
+            "out_dir"     : "../assets/quote-imgs"           // Quote image output folder
+        },
 
         "walker": {
 

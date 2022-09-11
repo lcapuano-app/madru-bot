@@ -4,6 +4,8 @@ from core.types.config import ConfigQuoteType
 from utils import DictValidator as Validator
 from core.config.validators.core_config_validator_error import CoreConfigValidatorError
 from core.config.validators.core_config_quote_canvas_validator import CoreConfigQuoteCanvasValidator
+from core.config.validators.core_config_quote_imgs_validator import CoreConfigQuoteImgsValidator
+
 
 class CoreConfigQuoteValidator():
 
@@ -17,7 +19,7 @@ class CoreConfigQuoteValidator():
         try:
             Validator.is_instance_of_err( self.__quote, self.__validator_pattern(), raise_err=True )
             self.__quote['canvas'] = CoreConfigQuoteCanvasValidator( self.__quote['canvas'] ).validate()
-
+            self.__quote['canvas'] = CoreConfigQuoteImgsValidator( self.__quote['imgs'] ).validate()
             return self.__quote
             
         except ValueError as err:
@@ -28,6 +30,6 @@ class CoreConfigQuoteValidator():
         return [
             { 'key': 'canvas', 'typing': dict },
             { 'key': 'decor', 'typing': dict },
-            { 'key': 'out_dir', 'typing': str },
+            { 'key': 'imgs', 'typing': dict },
             { 'key': 'walker', 'typing': dict }
         ]

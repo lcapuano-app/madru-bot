@@ -4,11 +4,17 @@ from typing import TypedDict
 
 
 class ConfigQuoteCanvasType ( TypedDict ):
-    color: str
-    mode: str#QuoteGenModes
-    height: int
-    width: int
+    color  : str
+    mode   : str#QuoteGenModes
+    height : int
+    width  : int
+
+
+class ConfigQuoteImgsType ( TypedDict ):
+    overlay_dir : str
+    out_dir     : str
 
 
 class ConfigQuoteType ( TypedDict ):
-    canvas: ConfigQuoteCanvasType
+    canvas : ConfigQuoteCanvasType
+    imgs   : ConfigQuoteImgsType
