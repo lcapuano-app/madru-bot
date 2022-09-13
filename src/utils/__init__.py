@@ -1,5 +1,5 @@
-from utils.dict_validator import DictValidator
+from utils import error
 
 __all__ = [
-    'DictValidator'
+    'error'
 ]

@@ -14,26 +14,16 @@
 
     // Quote image generator
     "quote": {
-
-        "author": {
-            "img_aplha": 100,
-            "resize_limit_ratio": 1.2,
-            "rotate_degs": -10
-        },
-
         "canvas": {
             "color": "black",    // Canvas base color. It can be the color name or rbb(a) notation. Eg: "rgb(0,0,0)"
-            "mode": "RGBA",      // Canvas RGB or RGBA
+            "mode": "RGB",       // Canvas RGB or RGBA
             "margin_ratio": 0.04,
             "height": 600,       // Canvas height in pixels
             "width": 800         // Canvas width in pixels
         },
 
         "decor": {
-            "bottom": {
-                "color": "rgb(209,201,5)",
-                "height": 2
-            }
+
         },
 
         "imgs": {
@@ -66,8 +56,7 @@
 
         "walker": {
             "asset": "walker.png",
-            "bottom_margin_ratio": 0.05,
-            "proportion_ratio": 0.2
+            "bottom_margin_ratio": 0.05
         }
     },
 

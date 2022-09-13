@@ -1,5 +1,8 @@
 import os
 
+from definitions import MAIN_DIR
+
+
 def create_dir( target_dir: str = None, raise_if_exists: bool = False ):
 
     if target_dir is None:
@@ -15,7 +18,7 @@ def create_dir( target_dir: str = None, raise_if_exists: bool = False ):
         os.makedirs( target_dir )
 
 
-def get_dir_dot_dot_path( target_dir: str = None, root_dir: str = None ) -> str:
+def get_dir_dot_dot_path( target_dir: str = None, root_dir: str = MAIN_DIR ) -> str:
     """ Raises Value error if target or root dirs are missing """
     if target_dir is None:
         raise ValueError('You must provide a target dir') 

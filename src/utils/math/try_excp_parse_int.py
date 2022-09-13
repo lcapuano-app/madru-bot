@@ -6,5 +6,5 @@ def try_parse_int( arg: Any ) -> int:
     try: 
         return int( arg )
     except ValueError as err: 
-        logging.debug( 'Parse int fail', err )
+        logging.debug( err )
         return 0

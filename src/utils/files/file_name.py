@@ -1,7 +1,7 @@
 import datetime
 
 
-def get_timestamp_filename( filename: str = 'file', ext: str = 'txt', pos: str = 'L'  ) -> str:
+def get_timestamp_filename( filename: str = 'file', ext: str = 'log', pos: str = 'L'  ) -> str:
 
     if pos != 'L' and pos != 'R':
         raise TypeError('Position must be "L" (left) or "R" (rigth).')

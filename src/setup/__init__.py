@@ -1,6 +1,8 @@
-from setup.app_setup import init as setup_init
+from setup import config
+from setup import logger
 
 
 __all__ = [
-    'setup_init'
+    'config',
+    'logger'
 ]
