@@ -2,14 +2,15 @@
     // Inner API
     "api": {
         "assets": {
-            "get": "https://lcapuano.app/valorant/bot/assets/",
-            "post": "https://lcapuano.app/valorant/bot/save-quote.php?thor=B@t4t45h0w!"
+            "url_get": "https://lcapuano.app/valorant/bot/assets/",
+            "url_post": "https://lcapuano.app/valorant/bot/save-quote.php?thor=B@t4t45h0w!"
         }
     },
 
     // Discord Bot
     "discord": {
-
+        "url_get": "https://lcapuano.app/valorant/bot/assets/",
+        "url_post": "https://lcapuano.app/valorant/bot/save-quote.php?thor=B@t4t45h0w!"
     },
 
     // Quote image generator
@@ -46,15 +47,17 @@
             "bottom": {
                 "font_face": "CursiveSerif-pj5Z.ttf",
                 "font_color": "rgb(209,201,5)",
-                "font_size": 26
+                "font_size": 0, // Zero or negative will enforce size factor.
+                "size_factor": 0.0325 // If font_size <= 0. Get the size by mult width(800) * (factor)0.0325 = 26
             },
-            "quote_txt": {
+            "center": {
            
                 "font_face": "CursiveSerif-pj5Z.ttf",
                 "font_color": "rgb(204,204,204)",
                 "stroke_size": 1,
                 "stroke_color": "rgb(166,160,0)",
-                "font_size": 22,
+                "font_size": 0,  // Zero or negative will enforce size factor.
+                "size_factor": 0.0275, // If font_size <= 0. Get the size by mult width(800) * (factor)0.0275 = 22
                 "wrap": 50
                 
                 

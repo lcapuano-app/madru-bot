@@ -21,15 +21,17 @@ def main() -> None:
 
 
 if __name__ == '__main__':
+    
     config.load_config()
     logger.load_logger()
-    
     s1 = App()
     s2 = App()
     assert s1 is s2
     import pprint
-    pprint.pprint( s1.config)
-    main()
+    pprint.pprint( s1.config.quote.decor.bottom.color )
+    #main()
+
+    
 
     
     

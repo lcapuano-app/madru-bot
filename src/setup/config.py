@@ -18,7 +18,9 @@ def load_config( file_path: str = None ) -> None:
         :returns: `dict`
     """
     cfg = __load_json_c( file_path )
-    App().config = cfg
+    ##App().set_config(cfg)
+    #App().config = cfg
+    App().cfg_dict = cfg
     
 
 def __restore_default() -> str:

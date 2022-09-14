@@ -14,7 +14,7 @@ from quote.layers import author, background, decor, layers, walker, texts
 
 def gen_quote_image( quote: QuoteGenReq ):
 
-    cfg = App().config
+    cfg = App().__config
     quote_cfg = cfg['quote']
 
     image_src: str = quote['overlay'] + '.png'

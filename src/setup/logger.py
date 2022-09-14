@@ -9,10 +9,10 @@ from definitions import MAIN_DIR
 
 def load_logger() -> None:
 
-    log_cfg = App().config['log']
-    level = __get_assert_level( level = log_cfg['level'] )
-    output_dir = __create_output_dir( output_dir = log_cfg['out_dir'] )
-    filename = get_timestamp_filename( filename = log_cfg['filename'] )
+    log_cfg = App().config.log
+    level = __get_assert_level( level = log_cfg.level )
+    output_dir = __create_output_dir( output_dir = log_cfg.out_dir )
+    filename = get_timestamp_filename( filename = log_cfg.filename )
     file_path = os.path.join( output_dir, filename )
 
     logging.basicConfig(
