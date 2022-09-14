@@ -5,19 +5,18 @@ from PIL import Image
 from PIL.Image import Image as ImageType
 
 from definitions import TRANSPARENT
-from utils import img
 from quote.layers import layers
 from app_types.config import ConfigQuote, ConfigQuoteImgs, ConfigQuoteWalker, ConfigType
 from app_types.quote import ColorMode
 
 
-def get_walker_layer( canvas: ImageType, walker_asset: ImageType,  margin: int = 0 ) ->ImageType:
+def get_walker_layer( canvas: ImageType, walker_asset: ImageType,  margin: int = 0 ) -> ImageType:
 
-    base_layer: ImageType = layers.get_pil_layer( ColorMode.RGBA.value, canvas.size, TRANSPARENT )
-    
     try:
+        base_layer: ImageType = layers.get_pil_layer( ColorMode.RGBA.value, canvas.size, TRANSPARENT )
         offset: tuple[int, int] = __get_offset( base_layer, walker_asset, margin )
         base_layer.paste( walker_asset, offset, walker_asset )
+
         return base_layer
 
     except Exception as err:

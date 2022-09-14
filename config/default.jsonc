@@ -43,22 +43,20 @@
         },
 
         "text": {
-            "author": {
-                "font": {
-                    "face": "CursiveSerif-pj5Z.ttf",
-                    "color": "rgb(209,201,5)",
-                    "size": 26
-                }
+            "bottom": {
+                "font_face": "CursiveSerif-pj5Z.ttf",
+                "font_color": "rgb(209,201,5)",
+                "font_size": 26
             },
             "quote_txt": {
-                "font": {
-                    "face": "CursiveSerif-pj5Z.ttf",
-                    "color": "rgb(204,204,204)",
-                    "stroke_size": 1,
-                    "stroke_color": "rgb(166,160,0)",
-                    "size": 22,
-                    "wrap": 50
-                }
+           
+                "font_face": "CursiveSerif-pj5Z.ttf",
+                "font_color": "rgb(204,204,204)",
+                "stroke_size": 1,
+                "stroke_color": "rgb(166,160,0)",
+                "font_size": 22,
+                "wrap": 50
+                
                 
 
             }

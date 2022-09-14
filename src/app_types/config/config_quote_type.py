@@ -29,15 +29,39 @@ class ConfigQuoteImgs ( TypedDict ):
 
 
 class ConfigQuoteWalker ( TypedDict ):
-    asset: str
-    bottom_margin_ratio: float
-    proportion_ratio: float
+    asset               : str
+    bottom_margin_ratio : float
+    proportion_ratio    : float
 
+
+class ConfigQuoteTextAuthor( TypedDict ):
+    font_face  : str
+    font_color : str
+    font_size  : int
+
+
+class ConfigQuoteTextBottom( TypedDict ):
+    font_face  : str
+    font_color : str
+    font_size  : int
+    size_factor  : float
+
+
+class ConfigQuoteTexQtTxt( ConfigQuoteTextBottom ):
+    stroke_size  : int
+    stroke_color : str
+    wrap         : int
+
+
+class ConfigQuoteTex( TypedDict ):
+    bottom    : ConfigQuoteTextBottom
+    quote_txt : ConfigQuoteTexQtTxt
+    
 
 class ConfigQuote ( TypedDict ):
     author : ConfigQuoteAuthor
     canvas : ConfigQuoteCanvas
     decor  : ConfigQuoteDecor
     imgs   : ConfigQuoteImgs
-    text: dict
+    text   : ConfigQuoteTex
     walker : ConfigQuoteWalker
