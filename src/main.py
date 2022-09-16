@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from app import App
-from setup import config, logger
+from app.setup import config, logger
 
 
 def fake_req():
@@ -23,12 +23,12 @@ def main() -> None:
 if __name__ == '__main__':
     
     config.load_config()
-    logger.load_logger()
-    s1 = App()
-    s2 = App()
-    assert s1 is s2
-    import pprint
-    pprint.pprint( s1.config.quote.decor.bottom.color )
+    # logger.load_logger()
+    # s1 = App()
+    # s2 = App()
+    # assert s1 is s2
+    # import pprint
+    #pprint.pprint( s1.config.quote.decor.bottom.color )
     #main()
 
     

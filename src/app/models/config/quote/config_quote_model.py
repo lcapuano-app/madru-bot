@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, TypedDict
+from typing_extensions import Self
 
 
 from app.models.config.quote.author.config_quote_author_model import QuoteAuthorConfig, QuoteAuthorConfigDict
@@ -21,20 +22,60 @@ class QuoteConfigDict( TypedDict ):
     text   : QuoteTextsConfigDict
     walker : QuoteWalkerConfigDict
 
-@dataclass
+
+@dataclass()
 class QuoteConfig:
-    author : QuoteAuthorConfig
-    canvas : QuoteCanvasConfig
-    decor  : QuoteDecorConfig
-    imgs   : QuoteImgsConfig
-    text   : QuoteTextsConfig
-    walker : QuoteWalkerConfig
+    
+    __instance : Self = None
+
+    __author : QuoteAuthorConfig = None
+    __canvas : QuoteCanvasConfig = None
+    __decor  : QuoteDecorConfig = None
+    __imgs   : QuoteImgsConfig = None
+    __text   : QuoteTextsConfig = None
+    __walker : QuoteWalkerConfig = None
+
+
+    def __new__(cls: type[Self], *args) -> Self:
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 
 
     def __init__(self, cfg: 'AppConfigDict') -> None:
-        self.author = QuoteAuthorConfig(cfg)
-        self.canvas = QuoteCanvasConfig(cfg)
-        self.decor = QuoteDecorConfig(cfg)
-        self.imgs = QuoteImgsConfig(cfg)
-        self.text = QuoteTextsConfig(cfg)
-        self.walker = QuoteWalkerConfig(cfg)
+
+        self.__author = QuoteAuthorConfig(cfg) if self.__author is None else self.__author
+        self.__canvas = QuoteCanvasConfig(cfg) if self.__canvas is None else self.__canvas
+        self.__decor = QuoteDecorConfig(cfg) if self.__decor is None else self.__decor
+        self.__imgs = QuoteImgsConfig(cfg) if self.__imgs is None else self.__imgs
+        self.__text = QuoteTextsConfig(cfg) if self.__text is None else self.__text
+        self.__walker = QuoteWalkerConfig(cfg) if self.__walker is None else self.__walker
+
+
+    @property
+    def author( self ) -> QuoteAuthorConfig:
+        return self.__author
+    
+    @property
+    def canvas( self ) -> QuoteCanvasConfig:
+        return self.__canvas
+
+    @property
+    def decor( self ) -> QuoteDecorConfig:
+        return self.__decor
+
+    @property
+    def imgs( self ) -> QuoteImgsConfig:
+        return self.__imgs
+
+    @property
+    def text( self ) -> QuoteTextsConfig:
+        return self.__text
+
+    @property
+    def author( self ) -> QuoteAuthorConfig:
+        return self.__author
+
+    @property
+    def walker( self ) -> QuoteWalkerConfig:
+        return self.__walker

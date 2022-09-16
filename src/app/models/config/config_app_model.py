@@ -1,5 +1,5 @@
 from dataclasses import asdict, dataclass
-from typing import TypedDict
+from typing import Dict, TypedDict
 
 from app.models.config.api import ApiConfig, ApiConfigDict
 from app.models.config.discord import DiscordConfig, DiscordConfigDict
@@ -12,6 +12,7 @@ class AppConfigDict( TypedDict ):
     discord : DiscordConfigDict
     log     : LogConfigDict
     quote   : QuoteConfigDict
+    misc    : Dict
 
 
 @dataclass( frozen=True )
@@ -21,3 +22,4 @@ class AppConfig:
     discord : DiscordConfig
     log     : LogConfig
     quote   : QuoteConfig
+    misc    : Dict

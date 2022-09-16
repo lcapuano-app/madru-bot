@@ -1,8 +1,5 @@
 from app.parsers.config import parse_to_app
-from app.app import App
 
-
-__all__ = [
-    'App',
+__all__ = [ 
     'parse_to_app'
 ]

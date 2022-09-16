@@ -1,36 +1,35 @@
+from typing_extensions import Self
+from utils.validator.dicts import is_instance_raise
 from app.models.config import AppConfig, AppConfigDict, ApiConfig, DiscordConfig, LogConfig, QuoteConfig
 
 
-class _App:
+class App:
 
-    _instance = None
+    __instance = None
     __config: AppConfig
-    __cfg_dict: AppConfigDict
+    __conf_dict: AppConfigDict = None
 
 
-    @property
-    def cfg_dict( self ) -> AppConfigDict:
-        return self.__cfg_dict
+    def __new__(cls: type[Self]) -> Self:
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 
-
-    @cfg_dict.setter
-    def cfg_dict( self, cfg_dict: AppConfigDict ) -> None:
-        self.__cfg_dict = cfg_dict
-        self.__init_app()
 
     @property
     def config( self ):
         return self.__config
 
 
+    def set_conf( self, cfg_dict: AppConfigDict ) -> None:
+        if self.__conf_dict is None:
+            self.__conf_dict = cfg_dict
+            self.__init_app()
+
+
     def __init_app( self ) -> None:
-        cfg = self.__cfg_dict
+        cfg = self.__conf_dict
         self.__config = AppConfig( 
-            ApiConfig(cfg), DiscordConfig(cfg), LogConfig(cfg), QuoteConfig(cfg) )
+            ApiConfig(cfg), DiscordConfig(cfg), LogConfig(cfg), QuoteConfig(cfg), misc=cfg['misc'] )
 
-
-
-def App():
-    if _App._instance is None:
-        _App._instance = _App()
-    return _App._instance
+    

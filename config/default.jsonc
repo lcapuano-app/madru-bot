@@ -1,5 +1,19 @@
 {
+    /** 
+                    !!! DO NOT DELETE ANY PROPERTY !!!
+        Parser/Validator will get really mad and spits a lot of red text !
+        
+        You can put wathever you want into misc prop. It's yours to play with
+        The parser/validator does not bother to check anything on it.
+    */
+
+    // MISC - You can access your custom confs usin App().config.misc['your']['custom']['chain']['...']
+    "misc": {
+
+    },
+
     // Inner API
+    
     "api": {
         "assets": {
             "url_get": "https://lcapuano.app/valorant/bot/assets/",
