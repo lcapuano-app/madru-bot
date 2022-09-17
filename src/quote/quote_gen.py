@@ -115,7 +115,7 @@ def __get_texts_layers(
         quote_text_layer = texts.get_quote_text_layer( quote, quote_cfg, gen_assets['bkg_layer'] )
 
     except Exception as err:
-        logging.error( err )
+        logging.error( err, exc_info=True )
 
     return bottom_text_layer, quote_text_layer
 

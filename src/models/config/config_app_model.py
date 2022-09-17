@@ -1,0 +1,25 @@
+from dataclasses import asdict, dataclass
+from typing import Dict, TypedDict
+
+from models.config.api import ApiConfig, ApiConfigDict
+from models.config.discord import DiscordConfig, DiscordConfigDict
+from models.config.log import LogConfig, LogConfigDict
+from models.config.quote.config_quote_model import QuoteConfig, QuoteConfigDict
+
+
+class AppConfigDict( TypedDict ):
+    api     : ApiConfigDict
+    discord : DiscordConfigDict
+    log     : LogConfigDict
+    quote   : QuoteConfigDict
+    misc    : Dict
+
+
+@dataclass( frozen=True )
+class AppConfig:
+
+    api     : ApiConfig
+    discord : DiscordConfig
+    log     : LogConfig
+    quote   : QuoteConfig
+    misc    : Dict

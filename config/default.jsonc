@@ -18,13 +18,26 @@
         "assets": {
             "url_get": "https://lcapuano.app/valorant/bot/assets/",
             "url_post": "https://lcapuano.app/valorant/bot/save-quote.php?thor=B@t4t45h0w!"
-        }
+        },
+        "henrik": {
+            "rank": "https://api.henrikdev.xyz/valorant/v1/mmr/na/{name}/{tag}"
+        },
+        "user_agents": [
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0) Gecko/20100101 Firefox/77.0",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+          ]
+          
     },
 
     // Discord Bot
     "discord": {
-        "url_get": "https://lcapuano.app/valorant/bot/assets/",
-        "url_post": "https://lcapuano.app/valorant/bot/save-quote.php?thor=B@t4t45h0w!"
+        "api_ver": 10,
+        "client_id": "1012089373459751047",
+        "token": "MTAxMjA4OTM3MzQ1OTc1MTA0Nw.GE0GwF.lnJnAbhEXv8oN7L4_lk5bVf2QBkF7rnlDzp5z8"
     },
 
     // Quote image generator

@@ -1,4 +1,5 @@
 import os.path
+from unittest.mock import DEFAULT
 
 # Main dir
 MAIN_DIR = os.path.dirname( os.path.abspath( __file__ ) )
@@ -18,6 +19,7 @@ CONFIG_FALLBACK = os.path.join( MAIN_DIR, 'fallback/config', CONFIG_FILE_NAME )
 __DEFAULT_QUOTE_FILE_NAME = 'quote.default.json'
 DEFAULT_QUOTE_FILE = os.path.join( CONFIG_DIR, __DEFAULT_QUOTE_FILE_NAME )
 
+DEFAULT_USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'
 
 
 

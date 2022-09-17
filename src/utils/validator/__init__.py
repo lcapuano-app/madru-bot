@@ -1,7 +1,7 @@
-from utils.validator.dicts import is_instance, is_instance_raise
+from utils.validator.typed_dict_crawler import match_typed_dict, raise_missing_properties_keys
 
 
 __all__ = [
-    'is_instance',
-    'is_instance_raise'
+    'match_typed_dict',
+    'raise_missing_properties_keys'
 ]

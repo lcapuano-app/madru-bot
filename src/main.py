@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+from time import sleep
+import pyfiglet
 
-from app import App
-from app.setup import config, logger
+from core.setup import config, logger
+from domains.api import HenrikApi
 
 
 def fake_req():
@@ -14,24 +15,37 @@ def fake_req():
     }
     gen_quote_image( quote_req )
 
-def main() -> None:
-    fake_req()
-    
+def __welcome( msg: str = "MadruBot" ) -> None:
+    print(pyfiglet.figlet_format( msg ))
+
+
+def __setup() -> None:
+    config.load_config()
+    #logger.load_logger()
+
+def __main() -> None:
+    #fake_req()
+    name: str='Q95 Madrudruga'
+    tag: str='quake'
+    player = (name, tag)
+    HenrikApi().get_rank( player )
     
 
 
 if __name__ == '__main__':
-    
-    config.load_config()
-    # logger.load_logger()
-    # s1 = App()
-    # s2 = App()
-    # assert s1 is s2
-    # import pprint
-    #pprint.pprint( s1.config.quote.decor.bottom.color )
-    #main()
+
+    __welcome()
+    __setup()
+    # __main()
 
     
 
     
     
+    # from halo import Halo
+
+    # spinner = Halo(text='Loading', spinner='dots')
+    # spinner.start() 
+    # sleep(5)
+    # spinner.stop()
+    # print('No Lugar')
