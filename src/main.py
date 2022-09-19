@@ -1,7 +1,8 @@
 from time import sleep
 import pyfiglet
 
-from app_config import config, logger
+from utils import Spinner
+from config import config, logger
 from domains.api import HenrikApi
 
 
@@ -16,11 +17,21 @@ def fake_req():
     gen_quote_image( quote_req )
 
 
+def __set_config() -> None:
+    config.load_config()
+    print('  ','-'*100)
+
+
+def __set_logger() -> None:
+    logger.load_logger()
+    print('  ','-'*100)
+
 
 def main() -> None:
     print(pyfiglet.figlet_format( "MadruBot" ))
-    config.load_config().unwrap()
-    #logger.load_logger()
+    __set_config()
+    __set_logger()
+    
     
     
 

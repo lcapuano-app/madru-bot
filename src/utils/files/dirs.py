@@ -1,30 +1,32 @@
 import os
 
 from definitions import MAIN_DIR
+from fn_result import Result, Ok,Err
 
 
-def create_dir( target_dir: str = None, raise_if_exists: bool = False ):
+def create_dir( target_dir: str = None, raise_if_exists: bool = False ) -> Result[None, ValueError | OSError]:
 
     if target_dir is None:
-        raise ValueError('You must provide a target dir')
+        return Err(ValueError('You must provide a target dir'))
 
     if os.path.exists( target_dir ):
         if raise_if_exists:
-            raise Exception(f'Target dir "{target_dir}" already exists')
+            return Err(OSError(f'Target dir "{target_dir}" already exists'))
         else:
-            return None
+            return Ok(None)
     
     else:
         os.makedirs( target_dir )
+        return Ok(None)
 
 
-def get_dir_dot_dot_path( target_dir: str = None, root_dir: str = MAIN_DIR ) -> str:
+def get_dir_dot_dot_path( target_dir: str = None, root_dir: str = MAIN_DIR ) -> Result[str, ValueError]:
     """ Raises Value error if target or root dirs are missing """
     if target_dir is None:
-        raise ValueError('You must provide a target dir') 
+        return Err(ValueError('You must provide a target dir'))
     
     elif root_dir is None:
-        raise ValueError('You must provide a root dir')
+        return Err(ValueError('You must provide a root dir'))
 
     else:
         path = root_dir
@@ -40,4 +42,4 @@ def get_dir_dot_dot_path( target_dir: str = None, root_dir: str = MAIN_DIR ) -> 
         splited_path = list( filter( lambda splt: (splt != '..'), splited_path ) )
         path = os.path.join( path, *splited_path)
 
-        return path
+        return Ok(path)

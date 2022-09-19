@@ -13,7 +13,7 @@ from fn_result import Result, Ok,Err
 
 
 @Spinner(text='Loading config file')
-def load_config( file_path: str = None ) -> Result[None, Exception]:
+def load_config( file_path: str = None ) -> None:
     
     """
         Tries to load default.jsonc file. 
@@ -37,7 +37,7 @@ def load_config( file_path: str = None ) -> Result[None, Exception]:
 
     conf = __validate_config( raw_data ).unwrap()
 
-    return App.set_conf(conf)
+    App.set_conf(conf)
     ##App.set_conf( conf ).unwrap()
     
    
@@ -59,6 +59,7 @@ def __load_json_c( file_path: str = None ) -> Result[Dict, Exception]:
         return Err(err)
 
 
+
 @Spinner(text='Restoring default json file')
 def __restore_default() -> Result[None, Exception]:
 
@@ -71,6 +72,7 @@ def __restore_default() -> Result[None, Exception]:
 
         except Exception as err:
             return Err(error.panic(err))
+
 
 
 @Spinner(text='Validating config file props and types')
