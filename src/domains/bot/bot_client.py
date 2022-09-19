@@ -22,6 +22,6 @@ class BotClient ( Client ):
 
     
     def run(self) -> None:
-        return super().run( "MTAxMjA4OTM3MzQ1OTc1MTA0Nw.GE0GwF.lnJnAbhEXv8oN7L4_lk5bVf2QBkF7rnlDzp5z8", reconnect=True )
+        return super().run( self.__token, reconnect=True )
     # def run(self, *args: Any, **kwargs: Any) -> None:
     #     super().run(self.__token)
