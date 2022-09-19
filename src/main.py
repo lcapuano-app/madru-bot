@@ -1,7 +1,7 @@
 from time import sleep
 import pyfiglet
 
-from core.setup import config, logger
+from app_config import config, logger
 from domains.api import HenrikApi
 
 
@@ -15,27 +15,20 @@ def fake_req():
     }
     gen_quote_image( quote_req )
 
-def __welcome( msg: str = "MadruBot" ) -> None:
-    print(pyfiglet.figlet_format( msg ))
 
 
-def __setup() -> None:
-    config.load_config()
+def main() -> None:
+    print(pyfiglet.figlet_format( "MadruBot" ))
+    config.load_config().unwrap()
     #logger.load_logger()
-
-def __main() -> None:
-    #fake_req()
-    name: str='Q95 Madrudruga'
-    tag: str='quake'
-    player = (name, tag)
-    HenrikApi().get_rank( player )
+    
     
 
 
 if __name__ == '__main__':
-
-    __welcome()
-    __setup()
+    main()
+    #__welcome()
+    #__setup()
     # __main()
 
     

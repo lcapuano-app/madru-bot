@@ -4,6 +4,8 @@ from typing import Any
 from halo import Halo
 from colorama import Fore, Style
 
+from fn_result import Err   
+
 
 class Spinner:
 
@@ -15,18 +17,23 @@ class Spinner:
         self.text = text
 
 
-    def __call__(self, fn=None ) -> Any:
+    def __call__(self, fn=None ):
   
         @functools.wraps(fn)
         def inner( *args, **kwargs ):
 
+            stop_symbol: str = self.__symbol_pass
             spin_text = self.__norm_text( fn )
             spinner = Halo( text = spin_text )
             spinner.start()
-
-            fn_result = fn(*args, **kwargs)
             
-            spinner.stop_and_persist( self.__symbol_pass )
+            fn_result = fn(*args, **kwargs)
+
+            if type(fn_result) == Err:
+                stop_symbol = self.__symbol_fail
+
+            #print('NEM VIM AQUI NEH?', type(fn_result), Err)
+            spinner.stop_and_persist( stop_symbol )
             
             return fn_result
         

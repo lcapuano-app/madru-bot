@@ -1,41 +1,16 @@
-from app_types.config.config_type import ConfigType
-from app_types.config.config_api_type import ConfigApi
-from app_types.config.config_discord_type import ConfigDiscord
-#from app_types.config.config_log_level_type import ConfigLogLevel
-from app_types.config.config_log_type import ConfigLog, ConfigLogLevel
-
-from app_types.config.config_quote_type import (
-    ConfigQuote, 
-    ConfigQuoteAuthor,
-    ConfigQuoteCanvas,
-    ConfigQuoteDecorBottom,
-    ConfigQuoteDecor, 
-    ConfigQuoteImgs, 
-    ConfigQuoteWalker,
-    ConfigQuoteTex,
-    ConfigQuoteTextBottom,
-    ConfigQuoteTexQtTxt
+from app_types._config.api_conf import ApiAssetsConf, ApiHenrikConf, ApiConf
+from app_types._config.discord_conf import DiscordConf
+from app_types._config.log_conf import LogConf, LogLevel
+from app_types._config.quote_conf import (
+    QuoteAuthorConf,
+    QuoteCanvasConf,
+    QuoteConf,
+    QuoteDecorBottomConf,
+    QuoteDecorConf,
+    QuoteImgsConf,
+    QuoteTextBottomConf,
+    QuoteTextCenterConf,
+    QuoteTextsConf,
+    QuoteWalkerConf
 )
-
-__all__ = [
-    'ConfigType',
-
-    'ConfigApi',
-
-    'ConfigDiscord',
-
-    'ConfigLog',
-    'ConfigLogLevel',
-
-    'ConfigQuote',
-    'ConfigQuoteAuthor',
-    'ConfigQuoteDecorBottom',
-    'ConfigQuoteDecor',
-    'ConfigQuoteCanvas',
-    'ConfigQuoteImgs',
-    'ConfigQuoteWalker',
-    'ConfigQuoteTex',
-    'ConfigQuoteTextBottom',
-    'ConfigQuoteTexQtTxt',
-
-]
+from app_types._config.app_conf import AppConf

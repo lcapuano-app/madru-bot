@@ -5,13 +5,13 @@ from time import sleep
 from typing import TYPE_CHECKING, Any, Dict
 from jsonc_parser.parser import JsoncParser
 
-from core import App
+#from core import App
 from utils import error, validator, Spinner
 from definitions import CONFIG_FILE, CONFIG_FALLBACK
-from models.config import AppConfigDict
+from types.config import AppConf
 
 
-@Spinner(text='Loading config file')
+#@Spinner(text='Loading config file')
 def load_config( file_path: str = None ) -> None:
     
     """
@@ -29,19 +29,19 @@ def load_config( file_path: str = None ) -> None:
     """
    
     conf = __load_json_c( file_path )
-    sleep(3)
-    __validate_config( conf )
-    App().set_conf(conf)
+    # sleep(3)
+    # __validate_config( conf )
+    # App().set_conf(conf)
 
 
-@Spinner(text='Validating config file props and types')
+#@Spinner(text='Validating config file props and types')
 def __validate_config( conf: Any ) -> None:
     """ 
     *** At this momment it just a type checker! ***
 
     Tries to parse default.jsonc(json) to a valid `AppConfigDitc`.
 
-    It iterates over, recursively, all json props matching with the `AppConfigDict` structure
+    It iterates over, recursively, all json props matching with the `AppConf` structure
 
     Raises `TypeError` with a custom (default.json tree) message
     """
@@ -49,15 +49,15 @@ def __validate_config( conf: Any ) -> None:
     keys_stack: str = 'CFG'
 
     error.raise_not_dict( conf )
-    error.raise_not_typeddict( AppConfigDict )
-    validator.raise_missing_properties_keys( subject = conf, target = AppConfigDict )
+    error.raise_not_typeddict( AppConf )
+    validator.raise_missing_properties_keys( subject = conf, target = AppConf )
    
-    for key in AppConfigDict.__annotations__.keys():
+    for key in AppConf.__annotations__.keys():
    
         # we do not care form 'misc' dict, parse or validade anything into misc prop
         if key == 'misc': continue
         validator.match_typed_dict( 
-            subject = conf[key], target = AppConfigDict.__annotations__[key], keys_stack = keys_stack + f'.{key}' )
+            subject = conf[key], target = AppConf.__annotations__[key], keys_stack = keys_stack + f'.{key}' )
 
     
 def __restore_default() -> str:
@@ -72,7 +72,7 @@ def __restore_default() -> str:
             error.panic( err, where=__file__ )
 
 
-@Spinner(text='Loading default json/jsonc file')
+#@Spinner(text='Loading default json/jsonc file')
 def __load_json_c( file_path: str = None ) -> Dict:
     
     file_path: str = file_path if file_path is not None else CONFIG_FILE

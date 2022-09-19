@@ -25,8 +25,11 @@ def raise_not_typeddict( _cls, / ) -> None:
         raise TypeError( pretty_error(str(type(_cls)), f" Is not instance of <class 'TypedDict'>" ))
 
 
-def pretty_error( light: str, low: str ) -> str:
-    print(f'{__Fore.RED}>>>>>> !!! CONFIG PARSER ERROR !!! <<<<<<{__Style.RESET_ALL}')
+def pretty_error( light: str, low: str, console_log: bool = False ) -> str:
+
+    if console_log:
+        print(f'{__Fore.RED}>>>>>> !!! CONFIG PARSER ERROR !!! <<<<<<{__Style.RESET_ALL}')
+        
     light: str = f'{__Fore.LIGHTRED_EX}>> {light}'
     low: str = __Fore.RED + low + __Style.RESET_ALL
     return f'{light}{low}'
