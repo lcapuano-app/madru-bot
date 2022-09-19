@@ -8,11 +8,13 @@ class App:
 
 
     @staticmethod
-    def conf() -> AppConf:
-        return App.__conf
+    def conf( set_conf: AppConf = None ) -> AppConf:
 
+        if set_conf is None:
+            return App.__conf
 
-    @staticmethod
-    def set_conf( conf: AppConf ) -> Result[None, Exception]:
-        if App.__conf is None:
-            App.__conf = conf
+        elif App.__conf is None:
+            App.__conf = set_conf
+
+        else:
+            return  App.__conf

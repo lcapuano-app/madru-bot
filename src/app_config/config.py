@@ -37,7 +37,7 @@ def load_config( file_path: str = None ) -> None:
 
     conf = __validate_config( raw_data ).unwrap()
 
-    App.set_conf(conf)
+    App.conf(set_conf=conf)
     ##App.set_conf( conf ).unwrap()
     
    

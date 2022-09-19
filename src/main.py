@@ -1,9 +1,7 @@
-from time import sleep
 import pyfiglet
 
-from utils import Spinner
-from config import config, logger
-from domains.api import HenrikApi
+from app_config import config, logger
+
 
 
 def fake_req():
@@ -38,18 +36,6 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
-    #__welcome()
-    #__setup()
-    # __main()
-
-    
-
-    
-    
-    # from halo import Halo
-
-    # spinner = Halo(text='Loading', spinner='dots')
-    # spinner.start() 
-    # sleep(5)
-    # spinner.stop()
-    # print('No Lugar')
+    from domains.bot.bot_client import BotClient
+    cc = BotClient()
+    cc.run()

@@ -36,7 +36,7 @@
     // Discord Bot
     "discord": {
         "api_ver": 10,
-        "client_id": "1012089373459751047",
+        "guild": "1012089373459751047",
         "token": "MTAxMjA4OTM3MzQ1OTc1MTA0Nw.GE0GwF.lnJnAbhEXv8oN7L4_lk5bVf2QBkF7rnlDzp5z8"
     },
 
